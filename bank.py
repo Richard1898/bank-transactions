@@ -5,15 +5,25 @@
 transactions = []
 
 def deposit(transactions, amount):
-    pass
+    print("Amount Deposited: ",amount)
+    transactions.append(amount)
 
 def withdraw(transactions, amount):
-    pass
+    amount = float(input("Enter amount to withdraw: "))
+    balance = sum(transactions)
+    if balance >= amount:
+        transactions.append(-amount)
+        print("You withdraw: ",amount)
+    else:
+        print("Insufficient balance ")
 
 def check_balance(transactions):
+    balance = sum(transactions)
+    print("Available Balance=",balance)
     pass
 
-def list():
+def list(transactions):
+    print(transactions)
     pass
 
 while True:
@@ -27,13 +37,14 @@ while True:
     choice = input("Enter your choice (1-4): ")
 
     if choice == '1':
-        pass
+        amount = int(input("Enter amount: "))
+        deposit(transactions, amount)
     elif choice == '2':
-        pass
+        withdraw(transactions, amount)
     elif choice == '3':
-        pass
+        check_balance(transactions)
     elif choice == '4':
-        pass
+        list(transactions)
     elif choice == '5':
         print("Exiting the banking system. Thank you!")
         break
